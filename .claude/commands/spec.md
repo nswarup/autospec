@@ -127,7 +127,9 @@ Incorporate feedback and improve the spec. Be collaborative, detail-oriented. Th
 > "The spec is locked. Here's the recommended next steps:
 > 1. **`/design`** — Generate a design doc with data models, architecture diagrams, API contracts, and tradeoff analysis
 > 2. **`/rfc`** — Generate a team-shareable RFC capturing the 'why' behind key decisions
-> 3. **`/tasks`** — Break the spec and design into an ordered implementation plan with tasks, dependencies, and PR structure"
+> 3. **`/tasks`** — Break the spec and design into an ordered implementation plan with tasks, dependencies, and PR structure
+>
+> Found a bug later? Run **`/bugfix`** — it will diagnose whether the bug is a spec gap or an implementation gap and update the right artifacts."
 
 ## Getting Started
 
