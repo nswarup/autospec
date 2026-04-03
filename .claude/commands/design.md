@@ -31,12 +31,20 @@ All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (c
 
 ### Phase 1: ORIENT (Understand Context) — aim for 2-4 exchanges
 
-Read the spec files (`proposal.md`, `spec.md`) and scan the existing codebase.
+Read the spec files (`proposal.md`, `spec.md`) from the feature directory and scan the existing codebase.
 
 Then present:
 - A summary of what the spec requires
 - An inventory of existing code, services, and infrastructure that this feature will touch
 - Any tensions between the spec and the current system (e.g. "the spec assumes X, but the codebase currently does Y")
+
+**Technical research:** Proactively investigate the key technical decisions this design will face. Use web search to research:
+- Library/framework options for core functionality (compatibility, maturity, maintenance status, license)
+- Performance characteristics and benchmarks relevant to non-functional requirements
+- Security implications and known vulnerabilities for candidate dependencies
+- How similar systems are commonly architected (patterns, anti-patterns, lessons learned)
+
+Present a brief research summary: "For [requirement X], I looked into [options A, B, C]. Here's what I found..." — this grounds the design phase in evidence rather than assumptions.
 
 Ask the user to confirm your understanding and flag anything you missed.
 
@@ -83,6 +91,12 @@ Generate `specs/[feature-slug]/design.md` with these sections:
 - **Title**
 - **Overview** — 2-3 sentence summary of the design approach
 - **Context** — Link back to spec, summarize what's being designed and why
+- **Research Summary** — Key findings from technical research conducted during Orient:
+  - Libraries/frameworks evaluated (with versions, license, maintenance status)
+  - Performance benchmarks or data points relevant to NFRs
+  - Security considerations discovered
+  - Architectural patterns observed in comparable systems
+  - Sources (links to docs, benchmarks, blog posts, repos reviewed)
 - **Data Models** — Entity descriptions with field tables (name, type, constraints, notes). Include a Mermaid ER diagram.
 - **Architecture** — Component descriptions with responsibilities. Include a Mermaid architecture/sequence diagram showing how components interact.
 - **API Contracts** — For each endpoint/interface:

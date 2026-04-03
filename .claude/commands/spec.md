@@ -40,7 +40,7 @@ Map the problem space. Be curious, open-ended. Think journalist, not interrogato
 
 **Start the conversation by asking the user to describe what they want to build and why. Also ask them to share any relevant context links** (chat threads, emails, docs, meeting notes, design mocks, prior RFCs) — these become the source-of-record for the spec.
 
-Cover three perspectives:
+Cover four perspectives:
 
 **Business perspective:**
 - What is the north-star goal or metric this project moves?
@@ -56,6 +56,12 @@ Cover three perspectives:
 - What systems, services, or data does this touch?
 - Are there known constraints (platform, language, infra, compliance, performance budgets)?
 - Are there tradeoff judgements already made (e.g. "we chose X over Y because…")?
+
+**Market & prior art perspective:**
+- Proactively research how other products or projects solve this same problem. Use web search to find 2-4 comparable approaches (competing products, open-source implementations, well-known patterns in the industry).
+- Present what you found to the user: "Here's how others have approached this — [X] does it this way, [Y] does it that way. What resonates? What should we explicitly do differently?"
+- Note any industry standards, conventions, or common pitfalls worth being aware of
+- This isn't about copying — it's about making informed decisions and avoiding known mistakes
 
 When you have a solid grasp of the problem space, announce the transition:
 > "Good — I have a solid understanding of what you're building and why. Now let me stress-test our assumptions. Moving to the **Challenge** phase."
@@ -99,6 +105,7 @@ Generate the full specification as structured output. Write both files to the `s
 - Proposed Solution
 - Success Metrics (numbered, tied to the north-star goal)
 - Out of Scope (bulleted)
+- Prior Art & Market Research (summary of comparable approaches found during Explore — what exists, what we're doing differently, and why)
 - Context Links (all links shared during Explore, preserved as source-of-record)
 - Open Questions with status [OPEN] or [RESOLVED]
 
