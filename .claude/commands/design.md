@@ -54,6 +54,13 @@ Cover these areas (as relevant to the spec):
 - What are the request/response shapes?
 - What are the error cases?
 
+**Test strategy:**
+- What are the riskiest areas that need the most test coverage?
+- For each layer (data, API, UI, integration points), what level of testing is appropriate?
+- What should use real dependencies vs mocks/stubs? (Prefer real where feasible — real databases over in-memory fakes, real service calls over stubs)
+- What test infrastructure is needed? (test databases, seed data, factories/fixtures, CI configuration)
+- Are there EARS acceptance criteria from the spec that imply specific test scenarios?
+
 **Tradeoffs & decisions:**
 - For each major fork in the road, present options with clear rationale
 - Ask the user to choose, or recommend one with justification
@@ -73,6 +80,16 @@ Generate `design.md` with these sections:
   - Request schema (fields, types, required/optional)
   - Response schema (success + error cases)
   - Example request/response
+- **Test Plan**
+  - **Test strategy** — Overall approach: what's tested at each level and why. State what uses real dependencies vs mocks, and the rationale.
+  - **Test scenarios** — Derived from the EARS acceptance criteria in the spec. For each user story, map its EARS criteria to concrete test cases:
+    - Scenario ID (TS-1, TS-2, ...)
+    - Source (US-1 AC-2, FR-3, etc.)
+    - Type: contract | integration | e2e | unit
+    - Description: "Given [setup], when [action], then [expected outcome]"
+    - Why this type: brief rationale for the test level chosen
+  - **Test infrastructure** — What's needed to run the test suite (test databases, seed data, factories/fixtures, environment config, CI setup)
+  - **Coverage priorities** — Rank which areas get tested first based on risk, not code volume. The riskiest paths and most complex logic get coverage first; straightforward CRUD gets coverage last.
 - **Key Decisions** — For each major tradeoff:
   - Decision ID (D-1, D-2, ...)
   - Question that was posed
