@@ -55,7 +55,7 @@ When major gaps are addressed (or explicitly deferred), announce:
 Play back your understanding precisely. Think technical writer.
 
 - Restate the problem, solution, and scope in your own words
-- List all user stories as "As a [persona], I want [action] so that [benefit]"
+- List all user stories as "As a [persona], I want [action] so that [benefit]", with acceptance criteria written in EARS (Easy Approach to Requirements Syntax) notation
 - Surface remaining [NEEDS CLARIFICATION] items
 - Confirm priorities: P1 (must-have) vs P2 (should-have) vs P3 (nice-to-have)
 - Confirm what is explicitly OUT of scope
@@ -82,7 +82,12 @@ Generate the full specification as structured output. Produce TWO files:
 - User Stories, each with:
   - ID (US-1, US-2, ...), priority [P1/P2/P3]
   - "As a **persona**, I want to **action** so that **benefit**"
-  - Acceptance Criteria as checkboxes
+  - Acceptance Criteria as checkboxes, written in EARS notation using these patterns:
+    - **Ubiquitous**: "THE SYSTEM SHALL [behavior]" — for unconditional requirements
+    - **Event-driven**: "WHEN [event], THE SYSTEM SHALL [behavior]" — for responses to triggers
+    - **State-driven**: "WHILE [state], THE SYSTEM SHALL [behavior]" — for behavior during ongoing conditions
+    - **Unwanted behavior**: "IF [condition], THEN THE SYSTEM SHALL [behavior]" — for error handling and edge cases
+    - **Optional**: "WHERE [feature], THE SYSTEM SHALL [behavior]" — for configurable or optional functionality
 - Requirements grouped by type (Functional, Non-functional, Constraint)
   - Each with ID (FR-1, NFR-1, C-1), priority [MUST/SHOULD/COULD], description
 - Out of Scope
