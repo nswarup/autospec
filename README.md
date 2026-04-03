@@ -53,6 +53,10 @@ Specs are saved to `.autospec/` in your project directory:
 - `spec.md` — User stories, requirements, acceptance criteria
 - `spec.json` — Machine-readable spec data
 
+## Contributing
+
+Contributions are welcome! Please open an issue to discuss proposed changes before submitting a pull request.
+
 ## Inspiration
 
 - [github/spec-kit](https://github.com/github/spec-kit) — Spec-driven development toolkit
