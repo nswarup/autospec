@@ -77,16 +77,17 @@ When the user confirms alignment, announce:
 
 Generate the full specification as structured output. Produce TWO files:
 
-**File 1: `proposal.md`** — Write this file with:
+**File 1: `proposal.md`** — A concise, stakeholder-friendly summary:
 - Title
 - Problem Statement
-- Target Users (bulleted)
+- Target Users (bulleted, noting their relationship: employees, customers, end-users, investors)
 - Proposed Solution
-- Success Metrics (numbered)
+- Success Metrics (numbered, tied to the north-star goal)
 - Out of Scope (bulleted)
+- Context Links (all links shared during Explore, preserved as source-of-record)
 - Open Questions with status [OPEN] or [RESOLVED]
 
-**File 2: `spec.md`** — Write this file with:
+**File 2: `spec.md`** — The detailed, implementable specification:
 - Title
 - Overview
 - User Stories, each with:
@@ -103,6 +104,8 @@ Generate the full specification as structured output. Produce TWO files:
 - Out of Scope
 - Open Questions
 
+**Stay focused on WHAT and WHY — do not include implementation details, technology choices, data models, or architecture decisions.** Those belong in the design doc (`/design`).
+
 After writing the files, explain what each section captures and flag any areas where you had to make assumptions.
 
 Then announce:
@@ -115,7 +118,12 @@ Incorporate feedback and improve the spec. Be collaborative, detail-oriented. Th
 - Address specific feedback the user gives
 - Suggest improvements proactively: "I notice we haven't covered X"
 - Update the spec files with each round of changes
-- When the user is satisfied, confirm completion
+- When the user is satisfied, confirm completion and suggest next steps:
+
+> "The spec is locked. Here's the recommended next steps:
+> 1. **`/design`** — Generate a design doc with data models, architecture diagrams, API contracts, and tradeoff analysis
+> 2. **`/rfc`** — Generate a team-shareable RFC capturing the 'why' behind key decisions
+> 3. **`/tasks`** — Break the spec and design into an ordered implementation plan with tasks, dependencies, and PR structure"
 
 ## Getting Started
 
