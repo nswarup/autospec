@@ -111,6 +111,18 @@ Create `.claude/principles.md` to define persistent rules that all commands resp
 - **Bugfix classification** — `/bugfix` distinguishes spec gaps from implementation gaps and fixes the right artifact first
 - **Drift detection** — `/drift` catches spec rot before it becomes a problem
 
+## Examples
+
+The [`examples/`](examples/) directory contains complete sample specs showing what `/spec` produces:
+
+| Example | Type | Highlights |
+|---------|------|------------|
+| [`todo-app`](examples/todo-app/) | Consumer web app | Real-time collaboration, WebSocket reconnection, workspace access control |
+| [`team-notifications`](examples/team-notifications/) | Event-driven system | Multi-channel routing, escalation logic, critical delivery guarantees |
+| [`api-rate-limiter`](examples/api-rate-limiter/) | Infrastructure/platform | Distributed state, fail-open design, tiered limits, IETF standard headers |
+
+Each example includes `proposal.md` (stakeholder summary with market research) and `spec.md` (user stories with EARS acceptance criteria, requirements, and open questions).
+
 ## Inspiration
 
 - [Kiro](https://kiro.dev/) — spec-driven IDE with EARS notation and agent hooks
