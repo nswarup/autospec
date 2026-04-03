@@ -13,6 +13,10 @@ This is the autospec project — a suite of Socratic slash commands for Claude C
   - `bugfix.md` — Bug diagnosis (spec gap vs implementation gap)
   - `drift.md` — Spec-code divergence detection
 - `.claude/principles.md` — Template for project-level rules all commands respect
+- `examples/` — Three sample spec outputs showing the expected format:
+  - `todo-app/` — Consumer web app (real-time collaboration, WebSocket handling)
+  - `team-notifications/` — Event-driven system (multi-channel routing, escalation)
+  - `api-rate-limiter/` — Infrastructure component (distributed state, fail-open design)
 - No application code — this repo is purely prompt engineering
 
 ## Architecture

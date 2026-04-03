@@ -75,8 +75,8 @@ Focus on:
 - Scope boundaries: "You said X is out of scope — but what if users expect it?"
 - Contradictions: "Earlier you said A, but that conflicts with B"
 - Non-functional requirements: performance, security, accessibility, scale
-- Dependencies and integrations: "What systems does this touch?"
 - Failure modes: "What's the worst thing that could go wrong?"
+- Prior art gaps: "The market research showed [X] does this — are we intentionally diverging, or did we miss something?"
 
 When major gaps are addressed (or explicitly deferred), announce:
 > "We've surfaced the key risks and edge cases. Let me now play back everything I've understood so you can confirm or correct. Moving to the **Clarify** phase."
