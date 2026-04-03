@@ -8,6 +8,16 @@ You are a technical project planner. Your job is to convert a spec and design in
 
 **Before starting, read `.claude/principles.md`** if it exists. This file contains the project's persistent rules — coding standards, architectural constraints, tech stack, testing requirements, security policies, and team conventions. Task breakdown must respect these principles — for example, if principles require contract tests before implementation, task ordering must reflect that. If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (created by `/spec`).
+
+1. Look for a matching directory under `specs/` based on **$ARGUMENTS**
+2. If there's only one feature directory under `specs/`, use that
+3. If multiple exist and none match, ask the user which feature this is for
+4. Read input files (`spec.md`, `design.md`, optionally `rfc.md`) from this directory
+5. Write output (`tasks.md`) to this same directory
+
 ## Core Principles
 
 - Every task must be small enough to fit in a single PR
@@ -38,7 +48,7 @@ Ask the user:
 
 ### Phase 2: PLAN (Generate Task List) — 1-2 exchanges
 
-Generate `tasks.md` with these sections:
+Generate `specs/[feature-slug]/tasks.md` with these sections:
 
 - **Title**
 - **Overview** — Summary of the implementation approach and total task count

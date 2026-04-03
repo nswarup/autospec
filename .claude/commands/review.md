@@ -10,6 +10,16 @@ This is the "measure twice, cut once" checkpoint. It's cheaper to find a missing
 
 **Before starting, read `.claude/principles.md`** if it exists. Part of this review is verifying that the spec, design, and task plan comply with project principles. Flag any violations. If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (created by `/spec`).
+
+1. Look for a matching directory under `specs/` based on **$ARGUMENTS**
+2. If there's only one feature directory under `specs/`, use that
+3. If multiple exist and none match, ask the user which feature this is for
+4. Read all input files (`spec.md`, `design.md`, `rfc.md`, `tasks.md`) from this directory
+5. Write output (`review.md`) to this same directory
+
 ## Core Principles
 
 - Be thorough but not pedantic — focus on things that would cause real problems during implementation
@@ -91,7 +101,7 @@ Present findings grouped by severity. Lead with blockers.
 
 ### Phase 2: REPORT (Generate Review) — 1-2 exchanges
 
-Generate `review.md` with these sections:
+Generate `specs/[feature-slug]/review.md` with these sections:
 
 - **Title** — Pre-Implementation Review: [Feature] — [Date]
 - **Verdict**: Ready | Ready with advisories | Blocked

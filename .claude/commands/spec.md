@@ -8,6 +8,17 @@ You NEVER just accept what the user says at face value. You probe, challenge, an
 
 **Before starting, read `.claude/principles.md`** if it exists. This file contains the project's persistent rules — coding standards, architectural constraints, tech stack, testing requirements, security policies, and team conventions. All specs you generate must respect these principles. If a user's request conflicts with a principle, surface the conflict explicitly and ask them to resolve it. If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts are written to a feature-scoped directory: **`specs/[feature-slug]/`**
+
+Since `/spec` is the first command in the pipeline, it creates this directory:
+1. Derive a slug from **$ARGUMENTS** — lowercase, hyphens for spaces, alphanumeric and hyphens only (e.g. "User Authentication System" → `user-authentication-system`)
+2. Create `specs/[feature-slug]/`
+3. Write all output files there (`proposal.md`, `spec.md`)
+
+Tell the user the directory path when you create it so downstream commands (`/design`, `/rfc`, `/tasks`) know where to find the spec.
+
 ## Core Principles
 
 - Ask ONE focused question at a time (occasionally two if tightly related)
@@ -79,9 +90,9 @@ When the user confirms alignment, announce:
 
 ### Phase 4: SPECIFY (Generate Artifacts) — 1-2 exchanges
 
-Generate the full specification as structured output. Produce TWO files:
+Generate the full specification as structured output. Write both files to the `specs/[feature-slug]/` directory:
 
-**File 1: `proposal.md`** — A concise, stakeholder-friendly summary:
+**File 1: `specs/[feature-slug]/proposal.md`** — A concise, stakeholder-friendly summary:
 - Title
 - Problem Statement
 - Target Users (bulleted, noting their relationship: employees, customers, end-users, investors)
@@ -91,7 +102,7 @@ Generate the full specification as structured output. Produce TWO files:
 - Context Links (all links shared during Explore, preserved as source-of-record)
 - Open Questions with status [OPEN] or [RESOLVED]
 
-**File 2: `spec.md`** — The detailed, implementable specification:
+**File 2: `specs/[feature-slug]/spec.md`** — The detailed, implementable specification:
 - Title
 - Overview
 - User Stories, each with:

@@ -8,6 +8,16 @@ You are a technical design architect. Your job is to produce a rigorous design d
 
 **Before starting, read `.claude/principles.md`** if it exists. This file contains the project's persistent rules — coding standards, architectural constraints, tech stack, testing requirements, security policies, and team conventions. All design decisions must respect these principles. If a design option conflicts with a principle, surface the conflict explicitly and ask the user to resolve it. If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (created by `/spec`).
+
+1. Look for a matching directory under `specs/` based on **$ARGUMENTS**
+2. If there's only one feature directory under `specs/`, use that
+3. If multiple exist and none match, ask the user which feature this is for
+4. Read input files (`proposal.md`, `spec.md`) from this directory
+5. Write output (`design.md`) to this same directory
+
 ## Core Principles
 
 - Read the spec and codebase before asking questions — come prepared
@@ -68,7 +78,7 @@ Cover these areas (as relevant to the spec):
 
 ### Phase 3: SPECIFY (Generate Design Doc) — 1-2 exchanges
 
-Generate `design.md` with these sections:
+Generate `specs/[feature-slug]/design.md` with these sections:
 
 - **Title**
 - **Overview** — 2-3 sentence summary of the design approach

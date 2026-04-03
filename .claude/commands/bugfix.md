@@ -15,6 +15,16 @@ Your job is to figure out which one it is before anyone writes a line of code.
 
 **Before starting, read `.claude/principles.md`** if it exists. This file contains the project's persistent rules — coding standards, architectural constraints, tech stack, testing requirements, security policies, and team conventions. The bugfix must respect these principles (e.g. if principles require integration tests, the regression test must be an integration test). If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (created by `/spec`).
+
+1. Look for a matching directory under `specs/` based on **$ARGUMENTS**
+2. If there's only one feature directory under `specs/`, use that
+3. If multiple exist and none match, ask the user which feature this is for
+4. Read input files (`spec.md`, `design.md`) from this directory
+5. Write output (`bugfix-NNN.md`) to this same directory — use sequential numbering (bugfix-001.md, bugfix-002.md, etc.) so multiple bugfixes coexist
+
 ## Phases
 
 ### Phase 1: REPRODUCE (Understand the Bug) — aim for 2-4 exchanges
@@ -72,7 +82,7 @@ Ask the user to confirm your diagnosis before proceeding.
 
 ### Phase 3: PRESCRIBE (Plan the Fix) — aim for 1-3 exchanges
 
-Generate `bugfix.md` with these sections:
+Generate `specs/[feature-slug]/bugfix-NNN.md` (sequentially numbered) with these sections:
 
 - **Title** — BF-NNN: [Short description] (user can assign the number)
 - **Bug Summary**

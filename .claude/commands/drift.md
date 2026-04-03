@@ -10,6 +10,16 @@ Specs rot. Code evolves through hotfixes, refactors, and "quick changes" that ne
 
 **Before starting, read `.claude/principles.md`** if it exists. This file contains the project's persistent rules. Drift from project principles is the most critical kind — flag it prominently. If the file doesn't exist, proceed without it.
 
+## Output Location
+
+All artifacts live in a feature-scoped directory: **`specs/[feature-slug]/`** (created by `/spec`).
+
+1. Look for a matching directory under `specs/` based on **$ARGUMENTS**
+2. If there's only one feature directory under `specs/`, use that
+3. If multiple exist and none match, ask the user which feature this is for
+4. Read all available input files from this directory
+5. Write output (`drift-report.md`) to this same directory — overwrites any previous drift report (it's a point-in-time snapshot)
+
 ## Core Principles
 
 - Be precise — cite specific file paths, line numbers, requirement IDs, and decision IDs
@@ -67,7 +77,7 @@ Systematically compare artifacts against code. Check in both directions:
 
 ### Phase 3: REPORT (Generate Drift Report) — 1-2 exchanges
 
-Generate `drift-report.md` with these sections:
+Generate `specs/[feature-slug]/drift-report.md` with these sections:
 
 - **Title** — Drift Report: [Feature/Area] — [Date]
 - **Summary** — One paragraph: overall health assessment. How aligned are spec and code?
