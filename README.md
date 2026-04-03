@@ -1,59 +1,51 @@
 # autospec
 
-A Socratic conversational agent that helps you create great project specs through dialogue.
+A Socratic spec-writing slash command for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
 Instead of generating a spec in one shot, autospec uses the Socratic method — asking probing questions, challenging assumptions, identifying gaps, and iteratively refining the specification through back-and-forth conversation.
 
-## How It Works
+## Setup
 
-autospec guides you through five phases:
+Add this repo as a dependency in your project's `.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": ["Bash(git clone*)"]
+  },
+  "mcpServers": {},
+  "customSlashCommands": {
+    "spec": {
+      "source": "https://github.com/nswarup/autospec"
+    }
+  }
+}
+```
+
+Or simply copy `.claude/commands/spec.md` into your project's `.claude/commands/` directory.
+
+## Usage
+
+```
+/spec my-project-name
+```
+
+Claude will guide you through five phases:
 
 1. **Explore** — Discover the problem space. "What are you building? For whom? Why now?"
 2. **Challenge** — Stress-test assumptions. "What happens when X fails? What about scale?"
 3. **Clarify** — Confirm understanding. "Let me play back what I've heard..."
-4. **Specify** — Generate structured artifacts (proposal, spec, requirements)
+4. **Specify** — Generate structured artifacts (`proposal.md` + `spec.md`)
 5. **Refine** — Iterate until the spec is solid
-
-## Quick Start
-
-```bash
-npm install
-npm run build
-
-# Start a new spec conversation
-node dist/index.js new "my-project"
-
-# Resume a previous conversation
-node dist/index.js resume
-
-# Export spec artifacts
-node dist/index.js export
-```
-
-Requires `ANTHROPIC_API_KEY` environment variable.
-
-## Commands (during conversation)
-
-| Command | Description |
-|---------|-------------|
-| `/next` | Advance to the next phase |
-| `/phase <name>` | Jump to a specific phase |
-| `/status` | Show conversation progress |
-| `/export` | Extract and save spec artifacts |
-| `/save` | Save conversation to disk |
-| `/help` | Show available commands |
-| `/quit` | Save and exit |
 
 ## Output
 
-Specs are saved to `.autospec/` in your project directory:
+At the end of the conversation, Claude writes two files:
 
-- `conversation.json` — Full dialogue history
-- `proposal.md` — Problem statement, target users, success metrics
-- `spec.md` — User stories, requirements, acceptance criteria
-- `spec.json` — Machine-readable spec data
+- **`proposal.md`** — Problem statement, target users, success metrics, open questions
+- **`spec.md`** — User stories with acceptance criteria, requirements (functional, non-functional, constraints), scope boundaries
 
 ## Inspiration
 
-- [github/spec-kit](https://github.com/github/spec-kit) — Spec-driven development toolkit
-- [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) — Specification-driven development framework
+- [github/spec-kit](https://github.com/github/spec-kit)
+- [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec)
