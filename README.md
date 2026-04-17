@@ -123,6 +123,10 @@ The [`examples/`](examples/) directory contains complete sample specs showing wh
 
 Each example includes `proposal.md` (stakeholder summary with market research) and `spec.md` (user stories with EARS acceptance criteria, requirements, and open questions).
 
+## Contributing
+
+Contributions are welcome! Please open an issue to discuss proposed changes before submitting a pull request.
+
 ## Inspiration
 
 - [Kiro](https://kiro.dev/) — spec-driven IDE with EARS notation and agent hooks
